@@ -8,7 +8,8 @@ const io = require('socket.io')(http)
 
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.json())
-const messages = [{ name: "Tony", message: "trying static" }, { name: "Magy", message: "messge 2" }]
+// const messages = [{ name: "Tony", message: "trying static" }, { name: "Magy", message: "messge 2" }]
+const messages = []
 app.get('/messages', (req, res) => {
     res.json(messages)
 })

@@ -6,7 +6,8 @@ const app = {
             messages: [],
             name: '',
             message: '',
-            index: 0
+            index: 0,
+            disable: false
         }
     },
     created() {
@@ -29,8 +30,11 @@ const app = {
                 method: 'post',
                 data: { name: this.name, message: this.message }
             })
-            this.name = ''
+            this.disable = true;
             this.message = ''
+        },
+        colourChatter(message) {
+            return `${message.name.toLowerCase().trim() === this.name.toLowerCase().trim() ? 'text-primary' : ''}`
         }
 
     },

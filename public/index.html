@@ -15,15 +15,17 @@
         <br>
         <div class="jumbotron">
             <h1>Send Message</h1>
-            <input type="text" class="form-control" placeholder="Name" v-model="name">
+            <input type="text" class="form-control" placeholder="Name" v-model="name" :disabled="disable">
             <br>
             <textarea class="form-control" placeholder="message ..." v-model="message"></textarea>
             <br>
             <button class="btn btn-success" @click="send">Send</button>
         </div>
         <div class="messages" v-for="message in messages">
-            <h4>{{message.name}}</h4>
-            <p>{{message.message}}</p>
+            <h4 :class="colourChatter(message)">
+                {{message.name}}</h4>
+            <p :class="colourChatter(message)">
+                {{message.message}}</p>
         </div>
 
     </div>
