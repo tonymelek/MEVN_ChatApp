@@ -10,6 +10,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.json())
 // const messages = [{ name: "Tony", message: "trying static" }, { name: "Magy", message: "messge 2" }]
 const messages = []
+const typers = []
 app.get('/messages', (req, res) => {
     res.json(messages)
 })
@@ -21,6 +22,18 @@ app.post('/messages', (req, res) => {
 })
 io.on('connection', socket => {
     console.log(`${socket.id} has been connected`)
+    io.emit('socketId', socket.id)
+    socket.on('typing', (data) => {
+        if (data.message > 0) {
+            if (typers.indexOf(data.name) === -1) typers.push(data.name)
+        } else {
+            if (typers.indexOf(data.name) !== -1) {
+                let index = typers.indexOf(data.name);
+                typers.splice(index, 1)
+            }
+        }
+        socket.broadcast.emit('typingS', typers)
+    })
     socket.on('disconnect', () => {
         console.log(`${socket.id} has been disconnected`);
     });

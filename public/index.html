@@ -20,12 +20,15 @@
             <textarea class="form-control" placeholder="message ..." v-model="message"></textarea>
             <br>
             <button class="btn btn-success" @click="send">Send</button>
+
+            <p>{{typingS}} {{typing?'':''}} </p>
         </div>
         <div class="messages" v-for="message in messages">
             <h4 :class="colourChatter(message)">
                 {{message.name}}</h4>
             <p :class="colourChatter(message)">
                 {{message.message}}</p>
+
         </div>
 
     </div>
