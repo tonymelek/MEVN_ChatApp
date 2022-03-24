@@ -1,0 +1,92 @@
+[
+    {
+      "id": 0,
+      "eventName": "abc",
+      "scene": 1,
+      "lightAction": "Back+Front",
+      "soundAction": "Track 09",
+      "triggered": false,
+      "lightAck": false,
+      "soundAck": false
+    },
+    {
+      "id": 1,
+      "eventName": "def",
+      "scene": 1,
+      "lightAction": "Front+Spot",
+      "soundAction": "Track 07",
+      "triggered": false,
+      "lightAck": false,
+      "soundAck": false
+    },
+    {
+      "id": 2,
+      "eventName": "ghi",
+      "scene": 2,
+      "lightAction": "Back+Spot",
+      "soundAction": "Track08",
+      "triggered": false,
+      "lightAck": false,
+      "soundAck": false
+    },
+    {
+      "id": 3,
+      "eventName": "jkl",
+      "scene": 3,
+      "lightAction": "Back+Front",
+      "soundAction": "Track 09",
+      "triggered": false,
+      "lightAck": false,
+      "soundAck": false
+    },
+    {
+      "id": 4,
+      "eventName": "mno",
+      "scene": 4,
+      "lightAction": "Front+Spot",
+      "soundAction": "Track 07",
+      "triggered": false,
+      "lightAck": false,
+      "soundAck": false
+    },
+    {
+      "id": 5,
+      "eventName": "pqr",
+      "scene": 5,
+      "lightAction": "Back+Spot",
+      "soundAction": "Track08",
+      "triggered": false,
+      "lightAck": false,
+      "soundAck": false
+    },
+    {
+      "id": 6,
+      "eventName": "sty",
+      "scene": 6,
+      "lightAction": "Back+Front",
+      "soundAction": "Track 09",
+      "triggered": false,
+      "lightAck": false,
+      "soundAck": false
+    },
+    {
+      "id": 7,
+      "eventName": "vwx",
+      "scene": 7,
+      "lightAction": "Front+Spot",
+      "soundAction": "Track 07",
+      "triggered": false,
+      "lightAck": false,
+      "soundAck": false
+    },
+    {
+      "id": 8,
+      "eventName": "xyz",
+      "scene": 7,
+      "lightAction": "Back+Spot",
+      "soundAction": "Track08",
+      "triggered": false,
+      "lightAck": false,
+      "soundAck": false
+    }
+  ]

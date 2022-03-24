@@ -1,5 +1,5 @@
 {
-  "name": "NodeJSTutorial",
+  "name": "director_controller",
   "version": "1.0.0",
   "main": "index.js",
   "author": "Tony Melek",
@@ -8,8 +8,9 @@
     "start": "nodemon index.js"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.17.1",
-    "mongoose": "^5.12.13",
-    "socket.io": "^4.1.2"
+    "socket.io": "^4.1.2",
+    "socket.io-client": "^4.4.1"
   }
 }

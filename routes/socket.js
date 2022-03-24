@@ -1,15 +1,15 @@
-const typers = []
+const events=require('./json/events.json');
+
 io.on('connection', socket => {
     console.log(`${socket.id} has been connected`)
     io.emit('socketId', socket.id)
-    socket.on('typing', (data) => {
-        let index = typers.indexOf(data.name)
-        if (data.message > 0) {
-            if (index === -1) typers.push(data.name)
-        } else {
-            if (index !== -1) typers.splice(index, 1)
-        }
-        socket.broadcast.emit('typingS', typers)
+    socket.on('triggerEvent', event => {
+        events[event.id]=event;
+        socket.broadcast.emit('eventTriggered', event)
+    })
+    socket.on('acknowledgeEvent',event=>{
+        events[event.id]=event;
+        socket.broadcast.emit('eventAcknowledged', event)
     })
     socket.on('disconnect', () => {
         console.log(`${socket.id} has been disconnected`);
