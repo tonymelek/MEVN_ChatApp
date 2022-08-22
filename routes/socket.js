@@ -6,6 +6,7 @@ io.on('connection', socket => {
     socket.on('triggerEvent', event => {
         events[event.id]=event;
         socket.broadcast.emit('eventTriggered', event)
+        console.log(socket.id);
     })
     socket.on('acknowledgeEvent',event=>{
         events[event.id]=event;

@@ -5,7 +5,9 @@
   "author": "Tony Melek",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon index.js"
+    "watch": "nodemon index.js",
+    "start": "node index.js",
+    "serve": "concurrently \"yarn start\" \"cd client && yarn dev\" "
   },
   "dependencies": {
     "cors": "^2.8.5",

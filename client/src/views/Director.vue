@@ -4,7 +4,7 @@
       <div class="col-6">
          <button @click="triggerEvent(event)"  
          class="btn my-1 w-100"
-         :class="event.triggered?'btn-success':'btn-outline-danger'"
+         :class="buttonColour(event)"
          >{{event.eventName}}</button>
       </div>
       <div class="col-6 d-flex justify-content-around align-items-center">
@@ -27,6 +27,7 @@
 
   export default {
     name: "Director",
+    props:['serverUrl','socket'],
     data(){
       return{
           events:[]
@@ -34,21 +35,34 @@
     },
     mounted(){
     const getEvents=async()=>{
-      const {data}=await axios.get(`${serverUrl}events`);
+      const {data}=await axios.get(`${this.serverUrl}events`);
       this.events=data;
     }
     getEvents();
-    socket.on('eventAcknowledged',event=>{
+    this.socket.on('eventAcknowledged',event=>{
       this.events[event.id]=event;
     })
 
     },
     methods:{
       triggerEvent(event){
-        if(event.triggered) return
-        event.triggered=true;
+        if(event.finished) return
+        if(!event.triggered){
+          event.triggered=true;
+        }else{
+          event.finished=true;
+        }
         this.events[event.id]=event;
         socket.emit('triggerEvent',event)
+      },
+      buttonColour(event){
+        let colour='btn-outline-danger';
+        if(event.finished){
+          colour='btn-success';
+        }else if(event.triggered){
+          colour='btn-warning'
+        }
+        return colour;
       }
     }
   }

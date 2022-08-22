@@ -16,7 +16,7 @@
       <div class="col-6">
          <button 
          class="btn my-1 w-100"
-         :class="event.triggered?'btn-success':'btn-outline-danger'"
+         :class="buttonColour(event)"
          >{{event.eventName}}</button>
       </div>
       <div class="col-6 d-flex justify-content-around align-items-center">
@@ -34,13 +34,12 @@
 </template>
 
 <script>
-  import {io} from 'socket.io-client';
+
   import axios from'axios';
-  const serverUrl=window.location.origin.replace(':3000',':5000/');
-  const socket = io(serverUrl);
 
   export default {
     name: "Operator",
+    props:['serverUrl','socket'],
     data(){
       return{
           events:[],
@@ -48,15 +47,18 @@
       }
     },
     mounted(){
+    const audio = new Audio('./notification.wav');
+   
     const getEvents=async()=>{
-      const {data}=await axios.get(`${serverUrl}events`);
+      const {data}=await axios.get(`${this.serverUrl}events`);
       this.events=data;
     }
     getEvents();
-    socket.on('eventTriggered',event=>{
+    this.socket.on('eventTriggered',event=>{
       this.events[event.id]=event;
+      audio.play(); 
     })
-      socket.on('eventAcknowledged',event=>{
+      this.socket.on('eventAcknowledged',event=>{
       this.events[event.id]=event;
     })
 
@@ -67,7 +69,16 @@
         const ack=this.operator==='sound'?'soundAck':'lightAck';
         event[ack]=true;
         this.events[event.id]=event;
-        socket.emit('acknowledgeEvent',event);
+        this.socket.emit('acknowledgeEvent',event);
+      },
+        buttonColour(event){
+        let colour='btn-outline-danger';
+        if(event.finished){
+          colour='btn-success';
+        }else if(event.triggered){
+          colour='btn-warning'
+        }
+        return colour;
       }
     }
   }

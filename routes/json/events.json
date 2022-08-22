@@ -7,7 +7,8 @@
       "soundAction": "Track 09",
       "triggered": false,
       "lightAck": false,
-      "soundAck": false
+      "soundAck": false,
+      "finished":false
     },
     {
       "id": 1,
@@ -17,7 +18,8 @@
       "soundAction": "Track 07",
       "triggered": false,
       "lightAck": false,
-      "soundAck": false
+      "soundAck": false,
+      "finished":false
     },
     {
       "id": 2,
@@ -27,7 +29,8 @@
       "soundAction": "Track08",
       "triggered": false,
       "lightAck": false,
-      "soundAck": false
+      "soundAck": false,
+      "finished":false
     },
     {
       "id": 3,
@@ -37,7 +40,8 @@
       "soundAction": "Track 09",
       "triggered": false,
       "lightAck": false,
-      "soundAck": false
+      "soundAck": false,
+      "finished":false
     },
     {
       "id": 4,
@@ -47,7 +51,8 @@
       "soundAction": "Track 07",
       "triggered": false,
       "lightAck": false,
-      "soundAck": false
+      "soundAck": false,
+      "finished":false
     },
     {
       "id": 5,
@@ -57,7 +62,8 @@
       "soundAction": "Track08",
       "triggered": false,
       "lightAck": false,
-      "soundAck": false
+      "soundAck": false,
+      "finished":false
     },
     {
       "id": 6,
@@ -67,7 +73,8 @@
       "soundAction": "Track 09",
       "triggered": false,
       "lightAck": false,
-      "soundAck": false
+      "soundAck": false,
+      "finished":false
     },
     {
       "id": 7,
@@ -77,7 +84,8 @@
       "soundAction": "Track 07",
       "triggered": false,
       "lightAck": false,
-      "soundAck": false
+      "soundAck": false,
+      "finished":false
     },
     {
       "id": 8,
@@ -87,6 +95,7 @@
       "soundAction": "Track08",
       "triggered": false,
       "lightAck": false,
-      "soundAck": false
+      "soundAck": false,
+      "finished":false
     }
   ]
